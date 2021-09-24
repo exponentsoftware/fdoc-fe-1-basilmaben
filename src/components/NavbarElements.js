@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { Link as LinkR } from "react-router-dom";
 import { Link as LinkS } from "react-scroll";
 
+
+
 export const Nav = styled.nav`
   background: #000;
   height: 80px;
@@ -91,7 +93,28 @@ export const NavBtnLink = styled(LinkR)`
   background: #01bf71;
   white-space: nowrap;
   padding: 10px 22px;
-  color: #010606;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s all ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    transition: 0.2s all ease-in-out;
+    background: #fff;
+    color: #010606;
+  }
+`;
+
+export const NavBtnLink2 = styled(LinkR)`
+  border-radius: 50px;
+  background: black;
+  white-space: nowrap;
+  margin-right: 10px;
+  padding: 10px 10px;
+  color: white;
   font-size: 16px;
   outline: none;
   border: none;
