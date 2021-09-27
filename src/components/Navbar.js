@@ -13,13 +13,13 @@ import {
   NavBtnLink2,
 } from './NavbarElements';
 
-const Navbar = ({ toggle }) => {
+const Navbar = () => {
   return (
     <>
       <Nav>
         <NavbarContainer>
         <NavLogo to='/' ><img src={logo} alt="logo" style={{ height: "40px", width: "40px", margin: "0 10px 0 0" }}/>Spotify</NavLogo>
-          <MobileIcon onClick={toggle}>
+          <MobileIcon>
             <FaBars />
           </MobileIcon>
           <NavMenu>

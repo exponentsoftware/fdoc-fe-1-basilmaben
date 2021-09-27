@@ -6,7 +6,7 @@ const Albums = ({ albums }) => {
   return (
     <Container>
       {albums.map((album) => (
-        <Album album={album} />
+        <Album album={album} /> 
       ))}
     </Container>
   );
