@@ -1,50 +1,45 @@
+import React, { useState } from "react"
 import './App.css';
 import Navbar from './components/Navbar';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom"
 import Albums from "./components/Albums";
-
+import AddAlbum from "./components/AddAlbum.js"
+import albums from "./components/data"
 
 function App() {
-  const albums = [
-    {
-      id: 1,
-      artist: "A.R. Rahman",
-      album_title: "Rockstar",
-      album_cover: "/Rockstar.jpg",
-    },
-    {
-      id: 2,
-      artist: "A.R. Rahman",
-      album_title: "Jodhaa Akbar",
-      album_cover: "/J.jpg",
-    },
-    {
-      id: 3,
-      artist: "A.R. Rahman",
-      album_title: "Highway",
-      album_cover: "/Highway.jpg",
-    },
-    {
-      id: 4,
-      artist: "A.R. Rahman",
-      album_title: "Raanjhanaa",
-      album_cover: "/Ranj.jpg",
-    },
-    {
-      id: 5,
-      artist: "A.R. Rahman",
-      album_title: "Rang De Basanti",
-      album_cover:  "/Rang.jpg",
-    },
-  ];
+  const [data, setData] = useState(albums)
+  const filter = input => {
+    setData(
+      albums.filter(
+        album => album.artist === input || album.album_title === input
+      )
+    )
+  }
+  const submitHandler = newData => {
+    data.push(newData)
+  }
+  console.log(data, "Data")
+  
 
   return (
     <>
       <div class="body">
-      <Router>
-        <Navbar />
-        <Albums albums={albums} />
-        </Router>
+        <Router>
+          <Navbar />
+
+          <Route /* Route data ,change page and add it to stack */
+            exact
+            path="/albums"
+            render={props => <Albums {...props} data={data} filter={filter} />}
+          />
+          <Route
+            exact
+            path="/add"
+            render={props => (
+              <AddAlbum {...props} submitHandler={submitHandler} data={data} /> // history=histo
+            )}
+          />
+               </Router>
       </div>
    </>
   );
