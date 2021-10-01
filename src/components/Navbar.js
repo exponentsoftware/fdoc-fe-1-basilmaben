@@ -1,4 +1,3 @@
-import { FaBars } from 'react-icons/fa';
 import logo from '../logo.svg';
 import {
   Nav,
